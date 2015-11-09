@@ -34,6 +34,6 @@ curl -H "Authorization: Basic YWRtaW46aG95dWVsYXMx>" -H "Content-Type: applicati
 
 echo usuario creado
 
-#terminamos
+#terminamos y salimos del script
 
 exit

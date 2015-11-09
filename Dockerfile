@@ -1,11 +1,12 @@
 
+
 FROM ubuntu:14.04
 MAINTAINER Javier Cabezas y Eugenio F. González <eugeniofidel@gmail.com>
 
 ENV VERSION 2.2.0
 
 #
-# instalamos java, descargamos el fichero de instalación de archiva, lo descomprimimos y lo ubicamos en la carpeta /opt
+# instalamos java, curl y wget, descargamos el fichero de instalación de archiva, lo descomprimimos y lo ubicamos en la carpeta /opt
 #
 RUN sudo apt-get update \
         && sudo apt-get -y install openjdk-7-jre-headless \
