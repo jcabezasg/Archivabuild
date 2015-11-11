@@ -4,6 +4,8 @@
 # Eugenio Fidel González & Javier Cabezas Gívica
 
 echo The script is initiating
+echo $USERNAME
+echo $PASSWORD
 ./archiva console &
 
 # The following sleep instructions are addressed to give Archiva enough time to finish its start rutines
