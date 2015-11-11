@@ -23,7 +23,7 @@ curl -H "Authorization: Basic YWRtaW46aG95dWVsYXMx>" -H "Content-Type: applicati
         "email": "administrator@email.com",
         "validated": false,
         "locked": false,
-        "password": "admin",
+        "password": "$PASSWORD",
         "passwordChangeRequired": true,
         "permanent": true,
         "confirmPassword": null,

@@ -5,7 +5,7 @@ MAINTAINER Javier Cabezas <jcabezasgivica@gmail.com> y Eugenio F. González <eug
 
 ENV VERSION 2.2.0
 ENV USERNAME admin
-ENV PASSWORD admin
+ENV PASSWORD admin1
 
 # Java,curl and wget installations 
 # Archiva file download, decompression and copy of all the files to folder /opt
