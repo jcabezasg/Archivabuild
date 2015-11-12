@@ -3,29 +3,33 @@
 # Script to open Archiva and create admin user 
 # Eugenio Fidel González & Javier Cabezas Gívica
 
+
+# creating security.properties file
+touch security.properties
+# Write security.policy.password.rule.numericalcount.enabled=false on this file
+# to allow passwords without digital caracters in Archiva
+echo "security.policy.password.rule.numericalcount.enabled=false" >> security.properties
+
+# After that we need to go to the bin directory, where the archiva file is
+cd ..
+cd bin
+# We're now in archiva bin folder 
 echo The script is initiating
-echo $USERNAME
-echo $PASSWORD
 ./archiva console &
 
 # The following sleep instructions are addressed to give Archiva enough time to finish its start rutines
 
-sleep 10
-sleep 10
-sleep 10
-sleep 10
-sleep 10
-sleep 10
+sleep 60
 
 # Curl command to add a new user in Archiva via REST service
 
-curl -H "Authorization: Basic YWRtaW46aG95dWVsYXMx>" -H "Content-Type: application/json" -X POST -d '{
-        "username": "$USERNAME",
+curl -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -X POST -d '{
+        "username": "'"$USERNAME"'",
         "fullName": "administrator",
         "email": "administrator@email.com",
         "validated": false,
         "locked": false,
-        "password": "$PASSWORD",
+        "password": "'"$PASSWORD"'",
         "passwordChangeRequired": true,
         "permanent": true,
         "confirmPassword": null,
@@ -45,3 +49,4 @@ echo User created successfully
 # End of the script
 
 exit
+

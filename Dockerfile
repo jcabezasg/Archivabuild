@@ -1,11 +1,9 @@
-
-
 FROM ubuntu:14.04
 MAINTAINER Javier Cabezas <jcabezasgivica@gmail.com> y Eugenio F. González <eugeniofidel@gmail.com>
 
 ENV VERSION 2.2.0
 ENV USERNAME admin
-ENV PASSWORD admin1
+ENV PASSWORD admin
 
 # Java,curl and wget installations 
 # Archiva file download, decompression and copy of all the files to folder /opt
@@ -20,16 +18,16 @@ RUN sudo apt-get update \
         && sudo mv apache-archiva-$VERSION /opt/
 
 #
-# Set up of the working directory in which Archiva launcher is found
+# Set up of the working directory in which Archiva security configuration file is found
 #
 
- WORKDIR /opt/apache-archiva-$VERSION/bin/
+ WORKDIR /opt/apache-archiva-$VERSION/conf/
 
 #
 # Copy of the script into the working folder
 #
 
-COPY entrypoint.sh /opt/apache-archiva-$VERSION/bin/
+COPY entrypoint.sh /opt/apache-archiva-$VERSION/conf/
  
 #
 # Set up of required permissions on script file 
@@ -39,3 +37,4 @@ RUN chmod 777 entrypoint.sh
 
 
 ENTRYPOINT bash -C './entrypoint.sh';'bash'
+
